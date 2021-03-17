@@ -16,10 +16,10 @@ class CreateDataTable extends Migration
         Schema::create('data', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->integer('nilai_1');
-            $table->integer('nilai_2');
-            $table->integer('nilai_3');
-            $table->text('keterangan');
+            $table->integer('nilai_1')->nullable();
+            $table->integer('nilai_2')->nullable();
+            $table->integer('nilai_3')->nullable();
+            $table->text('keterangan')->nullable();
             $table->timestamps();
         });
     }

@@ -33,6 +33,8 @@ class DataController extends Controller
     public function create()
     {
         //
+        $title = 'data entry';
+        return view('data.create')->with('title', $title);
     }
 
     /**
@@ -43,7 +45,17 @@ class DataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama' => 'required'
+        ]);
+        Data::create([
+            'nama' => request('nama'),
+            'nilai_1' => request('nilai_1'),
+            'nilai_2' => request('nilai_2'),
+            'nilai_3' => request('nilai_3'),
+            'keterangan' => request('keterangan'),
+        ]);
+        return redirect('/Data')->with('success', 'data saved');
     }
 
     /**
@@ -52,20 +64,28 @@ class DataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    // public function show($id)
+    // {
+       
+    // }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // /**
+    //  * Show the form for editing the specified resource.
+    //  *
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
     public function edit($id)
     {
         //
+        $title = 'data edit';
+        $data = Data::find($id);
+        if(!$data){
+            abort(404);
+        }
+        return view('data.edit')
+        ->with('title', $title)
+        ->with('data', $data) ;
     }
 
     /**
@@ -77,8 +97,18 @@ class DataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Data::find($id);
+        
+        $data->nama = $request->nama;   
+        $data->nilai_1 = $request->nilai_1; 
+        $data->nilai_2 = $request->nilai_2;  
+        $data->nilai_3 = $request->nilai_3;
+        $data->keterangan = $request->keterangan;        
+        $data->save();
+
+        return redirect('/Data')->with('success', 'data saved');                
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -89,5 +119,9 @@ class DataController extends Controller
     public function destroy($id)
     {
         //
+        $data = Data::find($id);       //cari id yang dipencet
+        $data-> delete();                  //delete id tersebut
+
+        return redirect('/Data')->with('success', 'data deleted');                //redirect lagi ke home
     }
 }
