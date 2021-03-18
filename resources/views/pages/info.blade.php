@@ -105,10 +105,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg d-flex justify-content-center text-center">
-                        <div class="card text-white bg-primary " style="min-width: 50rem;">
+                        <div class="card text-white bg-primary " style="min-width: 30rem;">
                             <div class="card-header"><b>nilai maximum</b></div>
                             <div class="card-body">
-                                <h5 class="card-title">Primary card title</h5>
+                                <h5 class="card-title">{{max($max1,$max2,$max3)}}</h5>
 
                             </div>
                         </div>
@@ -117,10 +117,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-lg d-flex justify-content-center text-center">
-                        <div class="card text-white bg-danger " style="min-width: 50rem;">
-                            <div class="card-header"><b>nilai  minimum</b></div>
+                        <div class="card text-white bg-danger " style="min-width: 30rem;">
+                            <div class="card-header"><b>nilai minimum</b></div>
                             <div class="card-body">
-                                <h5 class="card-title">Primary card title</h5>
+                                <h5 class="card-title">{{min($min1,$min2,$min3)}}</h5>
 
                             </div>
                         </div>
@@ -129,10 +129,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-lg d-flex justify-content-center text-center">
-                        <div class="card border-dark " style="min-width: 50rem;">
+                        <div class="card border-dark " style="min-width: 30rem;">
                             <div class="card-header"><b>nilai rata-rata</b></div>
                             <div class="card-body">
-                                <h5 class="card-title">Primary card title</h5>
+                                <h5 class="card-title">{{$avgAll}}</h5>
 
                             </div>
                         </div>
@@ -140,9 +140,74 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 </div>
+<hr>
+<div class="container text-center">
+    <div class="row">
+        <div class="col-sm">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <td scope="col">nilai</td>
+                        <td scope="col">Frekuensi</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($frek1 as $frek)
 
+                    <tr>
+                        <td> {{ $frek->nilai }} </td>
+                        <td> {{ $frek->frek }}</td>
+                    </tr>
+
+                    @endforeach
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <td scope="col">nilai</td>
+                        <td scope="col">Frekuensi</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($frek2 as $frek)
+
+                    <tr>
+                        <td> {{ $frek->nilai }} </td>
+                        <td> {{ $frek->frek }}</td>
+                    </tr>
+
+                    @endforeach
+                   
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <td scope="col">nilai</td>
+                        <td scope="col">Frekuensi</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($frek1 as $frek)
+
+                    <tr>
+                        <td> {{ $frek->nilai }} </td>
+                        <td> {{ $frek->frek }}</td>
+                    </tr>
+
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 @endsection
