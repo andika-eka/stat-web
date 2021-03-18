@@ -10,7 +10,8 @@ class PagesController extends Controller
 {
     public function index(){
         $title = 'Andika';
-        return view('pages.index')->with('title', $title); 
+        $data = Data::count();
+        return view('pages.index')->with('title', $title) ->with('data', $data); 
     }
 
     public function info(){

@@ -147,6 +147,19 @@
 <div class="container text-center">
     <div class="row">
         <div class="col-sm">
+            <h4>nilai 1</h4>
+        </div>
+        <div class="col-sm">
+            <h4>nilai 2</h4>
+        </div>
+        <div class="col-sm">
+            <h4>nilai 3</h4>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-sm">
             <table class="table table-striped table-dark">
                 <thead>
                     <tr>
@@ -163,7 +176,7 @@
                     </tr>
 
                     @endforeach
-                    
+
                 </tbody>
             </table>
         </div>
@@ -184,7 +197,7 @@
                     </tr>
 
                     @endforeach
-                   
+
                 </tbody>
             </table>
         </div>
