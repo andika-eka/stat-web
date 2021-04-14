@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="mt-5">statitika</h1>
+        <h1 class="mt-5">statistika</h1>
         <p class="lead">about</p>
         <ul class="list-unstyled">
           <li>Putu Andika Eka Putra</li>

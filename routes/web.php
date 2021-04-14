@@ -16,6 +16,10 @@ use App\Http\Controllers\PagesController;
 |
 */
 
+//ps. maaf di buat secara tergesa-gesa jadi tanpa comment
+//tar tak benerin kalo ada niat
+
+
 Route::get('/', [PagesController::class, 'index']);
 // Route::get('/data', [PagesController::class, 'data']);
 Route::get('/info', [PagesController::class, 'info']);
