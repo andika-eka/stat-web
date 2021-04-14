@@ -19,7 +19,7 @@
 
 <body style=" background-image: url(img/bg.png); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
 
-  <!-- Navigation -->
+  <!-- Navigation  -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
       <a class="navbar-brand" title="Andika eka" href="/">stat-web</a>
