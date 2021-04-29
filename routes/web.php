@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DatasController;
+
 use App\Http\Controllers\PagesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,9 @@ Route::get('/about', [PagesController::class, 'about']);
 
 Route::resource('Data', DataController::class );
 
+Route::get('/export', [DataController::class, 'export']);
+Route::get('/import', [DataController::class, 'import']);
+Route::post('/import', [DataController::class, 'importFile']);
 /*
 +--------+-----------+------------------+--------------+---------------------------------------------+------------+
 | Domain | Method    | URI              | Name         | Action                                      | Middleware |

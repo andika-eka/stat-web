@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Data;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\dataExport;
+use App\Imports\DataImport;
 
 class DataController extends Controller
 {
@@ -117,5 +120,24 @@ class DataController extends Controller
         $data-> delete();                  //delete id tersebut
 
         return redirect('/Data')->with('success', 'data deleted');                //redirect lagi ke home
+    }
+
+    public  function export(){
+        return Excel::download(new dataExport, 'data.xlsx');
+    }
+
+    public function import(){
+        $title = 'import from spreadsheet';
+        return view('data.import')
+        ->with('title', $title);
+    }
+
+    public function importFile(Request $request){
+        // $request->validate([
+        //     'file' => 'required|max:10000|mimes:xlsx,xls',
+        // ]);
+        Excel::import(new DataImport, $request->file('file'));
+        
+        return redirect('/')->with('success', 'All good!');
     }
 }

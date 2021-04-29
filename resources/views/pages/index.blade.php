@@ -35,4 +35,17 @@
         </div>
     </div>
 </div>
+<div class="row align-items-md">
+    <div class="col-lg-12 text-center" style= 'padding: 30px;'>
+        <div class="h-100 p-5 text-white bg-dark rounded-3" style="  margin: auto; max-width: 700px; background-image: url(img/img4.png); background-size: cover; color:white; box-shadow: 10px 10px 5px grey; border-radius: 10px;">
+            <div style="background-color: rgba(5, 5, 5, 0.6); padding:50px;">
+                <h2 >data dari spreadsheet</h2>
+                <p>daftar data yang sudah di input ditampilkan dalam bentuk table</p>
+                <a class="btn btn-outline-light" type="button" href="/import"> import</a>
+                <a class="btn btn-outline-light" type="button" href="/export"> export</a>
+            </div>
+            
+        </div>
+    </div>
+</div>
 @endsection
