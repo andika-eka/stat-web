@@ -21,10 +21,7 @@
                         <div class="card  border-primary mb-3" style="box-shadow: 10px 10px 5px; ">
                             <div class="card-header"><b>nilai maximum</b></div>
                             <div class="card-body">
-                                <h6 class="card-title">nilai 1 : {{$max1}}</h6>
-                                <h6 class="card-title">nilai 2 : {{$max2}}</h6>
-                                <h6 class="card-title">nilai 3 : {{$max3}}</h6>
-                                <h6 class="card-title">nilai total : {{max($max1,$max2,$max3)}}</h6>
+                                <h3 class="card-title"> {{$max1}}</h3>
                             </div>
                         </div>
                     </div>
@@ -34,11 +31,7 @@
                         <div class="card  border-danger  mb-3" style="box-shadow: 10px 10px 5px;">
                             <div class="card-header"><b>nilai minimum</b></div>
                             <div class="card-body">
-                                <h6 class="card-title">nilai 1 : {{$min1}}</h6>
-                                <h6 class="card-title">nilai 2 : {{$min2}}</h6>
-                                <h6 class="card-title">nilai 3 : {{$min3}}</h6>
-                                <h6 class="card-title">nilai total : {{min($min1,$min2,$min3)}}</h6>
-
+                                <h3 class="card-title"> {{$min1}}</h3>
                             </div>
                         </div>
                     </div>
@@ -48,10 +41,7 @@
                         <div class="card border-dark mb-3" style="box-shadow: 10px 10px 5px;">
                             <div class="card-header"><b>nilai rata-rata</b></div>
                             <div class="card-body">
-                                <h6 class="card-title">nilai 1 : {{$avg1}}</h6>
-                                <h6 class="card-title">nilai 2 : {{$avg2}}</h6>
-                                <h6 class="card-title">nilai 3 : {{$avg3}}</h6>
-                                <h6 class="card-title">nilai total : {{$avgAll}}</h6>
+                                <h3 class="card-title"> {{$avg1}}</h3>
                             </div>
                         </div>
                     </div>
@@ -85,49 +75,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-sm">
-                        <h4>nilai 2</h4>
-                        <table class="table table-striped table-dark">
-                            <thead>
-                                <tr>
-                                    <td scope="col">nilai</td>
-                                    <td scope="col">Frekuensi</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($frek2 as $frek)
-
-                                <tr>
-                                    <td> {{ $frek->nilai }} </td>
-                                    <td> {{ $frek->frek }}</td>
-                                </tr>
-
-                                @endforeach
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-sm">
-                        <h4>nilai 3</h4>
-                        <table class="table table-striped table-dark">
-                            <thead>
-                                <tr>
-                                    <td scope="col">nilai</td>
-                                    <td scope="col">Frekuensi</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($frek3 as $frek)
-
-                                <tr>
-                                    <td> {{ $frek->nilai }} </td>
-                                    <td> {{ $frek->frek }}</td>
-                                </tr>
-
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                    
                 </div>
             </div>
         </div>

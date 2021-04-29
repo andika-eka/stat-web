@@ -46,14 +46,11 @@ class DataController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama' => 'required'
+            'nilai_1' => 'required'
         ]);
         Data::create([
-            'nama' => request('nama'),
+            'nama' => '-',
             'nilai_1' => request('nilai_1'),
-            'nilai_2' => request('nilai_2'),
-            'nilai_3' => request('nilai_3'),
-            'keterangan' => request('keterangan'),
         ]);
         return redirect('/Data')->with('success', 'data saved');
     }
@@ -99,11 +96,8 @@ class DataController extends Controller
     {
         $data = Data::find($id);
         
-        $data->nama = $request->nama;   
-        $data->nilai_1 = $request->nilai_1; 
-        $data->nilai_2 = $request->nilai_2;  
-        $data->nilai_3 = $request->nilai_3;
-        $data->keterangan = $request->keterangan;        
+     
+        $data->nilai_1 = $request->nilai_1;  
         $data->save();
 
         return redirect('/Data')->with('success', 'data saved');                
