@@ -54,7 +54,7 @@
 
                 <div class="row">
                     <div class="col-sm">
-                        <h4>nilai 1</h4>
+                        <h4>Table frekuensi</h4>
                         <table class="table table-striped table-dark" >
                             <thead>
                                 <tr>
@@ -82,5 +82,5 @@
     </div>
 
     <hr>
-
+</div>
     @endsection

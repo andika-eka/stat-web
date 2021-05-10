@@ -25,6 +25,7 @@ Route::get('/', [PagesController::class, 'index']);
 // Route::get('/data', [PagesController::class, 'data']);
 Route::get('/info', [PagesController::class, 'info']);
 Route::get('/about', [PagesController::class, 'about']);
+Route::get('/bergolong', [PagesController::class, 'DataBergolong']);
 
 Route::resource('Data', DataController::class );
 

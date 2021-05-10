@@ -64,6 +64,7 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="/Data">data</a>
                                 <a class="nav-link" href="/info">informasi</a>
+                                <a class="nav-link" href="/bergolong">data bergolong</a>
                             </nav>
                         </div>
                         <a class="nav-link" href="/about">

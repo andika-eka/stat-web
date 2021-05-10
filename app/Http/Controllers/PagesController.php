@@ -15,21 +15,20 @@ class PagesController extends Controller
     }
 
     public function info(){
+
+        //awal nya ada 3 set data nilai 
+        //tapi karena disuruh pakek 1 set aja 
+        //name variable nya jadi aneh
         $title = 'Information';
         
         $max1 = Data::max('nilai_1');
-        $max2 = Data::max('nilai_2');
-        $max3 = Data::max('nilai_3');
-
+       
         $min1 = Data::min('nilai_1');
-        $min2 = Data::min('nilai_2');
-        $min3 = Data::min('nilai_3');
-
+        
         $avg1 = number_format(Data::average('nilai_1'),2);
-        $avg2 = number_format(Data::average('nilai_2'),2);
-        $avg3 = number_format(Data::average('nilai_3'),2);
+      
 
-        $avgAll =number_format((Data::sum('nilai_1') + Data::sum('nilai_2') + Data::sum('nilai_3'))/(Data::count('nilai_1')+Data::count('nilai_2')+Data::count('nilai_3')) ,2 );
+       
 
         // $nilai1 = data::select('nilai_1 as nilai');
         // $nilai2 = data::select('nilai_2 as nilai')->unionAll($nilai1);
@@ -42,8 +41,7 @@ class PagesController extends Controller
         //                         ->get();
 
         $frek1 = Data::select('nilai_1 as nilai', DB::raw('count(*) as frek'))->groupBy('nilai_1')->get();
-        $frek2 = Data::select('nilai_2 as nilai', DB::raw('count(*) as frek'))->groupBy('nilai_2')->get();
-        $frek3 = Data::select('nilai_3 as nilai', DB::raw('count(*) as frek'))->groupBy('nilai_3')->get();
+        
         
                                 
 
@@ -53,14 +51,46 @@ class PagesController extends Controller
 
 
         return view('pages.info',[  'title' => $title,
-                                    'max1' => $max1, 'max2' => $max2, 'max3' => $max3, 
-                                    'min1' => $min1, 'min2' => $min2, 'min3' => $min3,
-                                    'avg1' => $avg1, 'avg2' => $avg2, 'avg3' => $avg3, 'avgAll' => $avgAll,
-                                    'frek1' => $frek1, 'frek2' => $frek2, 'frek3' => $frek3]);
+                                    'max1' => $max1, 
+                                    'min1' => $min1, 
+                                    'avg1' => $avg1, 
+                                    'frek1' => $frek1]);
     }
     public function about(){
         $title = 'about';
         return view('pages.about')->with('title', $title);
     }
-    
+
+    public function DataBergolong(){
+        $title = 'Data Bergolong';
+
+        $valMax = Data::max('nilai_1');
+        $valMin = Data::min('nilai_1');
+        
+        $range = $valMax - $valMin;
+
+        $dataNum = Data::count('nilai_1');
+
+        $class = ceil(3.3 * log10($dataNum) + 1);
+        $interval = ceil($range/$class);
+
+        $botlimit = $valMin;
+        $toplimit = 0;
+        
+        for($i = 0; $i < $class; $i++){
+            $toplimit = $botlimit + $interval - 1;
+            $frek[$i] = Data::select('nilai_1 as value', DB::raw('count(*) as frek'))
+                    ->where([['nilai_1', '>=', $botlimit],['nilai_1', '<=', $toplimit]])
+                    ->groupBy('nilai_1')
+                    ->count('nilai_1');
+
+            $data[$i] =  $botlimit.'-'.$toplimit;
+            $botlimit = $toplimit +1;
+
+        }
+        return view('pages.grouped',['title' => $title,
+                                    'class' => $class,
+                                    'data' => $data,
+                                    'frek' => $frek]);
+    }
 }
