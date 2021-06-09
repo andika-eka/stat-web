@@ -44,12 +44,6 @@ class PagesController extends Controller
         
         
                                 
-
-       
-
-
-
-
         return view('pages.info',[  'title' => $title,
                                     'max1' => $max1, 
                                     'min1' => $min1, 
@@ -79,10 +73,9 @@ class PagesController extends Controller
         
         for($i = 0; $i < $class; $i++){
             $toplimit = $botlimit + $interval - 1;
-            $frek[$i] = Data::select('nilai_1 as value', DB::raw('count(*) as frek'))
+            $frek[$i] = Data::select(DB::raw('count(*) as frekuensi, nilai_1'))
                     ->where([['nilai_1', '>=', $botlimit],['nilai_1', '<=', $toplimit]])
-                    ->groupBy('nilai_1')
-                    ->count('nilai_1');
+                    ->count();
 
             $data[$i] =  $botlimit.'-'.$toplimit;
             $botlimit = $toplimit +1;
