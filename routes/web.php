@@ -32,6 +32,8 @@ Route::resource('Data', DataController::class );
 Route::get('/export', [DataController::class, 'export']);
 Route::get('/import', [DataController::class, 'import']);
 Route::post('/import', [DataController::class, 'importFile']);
+
+Route::get('/chi', [PagesController::class, 'chi']);
 /*
 +--------+-----------+------------------+--------------+---------------------------------------------+------------+
 | Domain | Method    | URI              | Name         | Action                                      | Middleware |

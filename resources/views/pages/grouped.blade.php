@@ -11,11 +11,11 @@
     </div>
     <div class="row">
 
-        <div class="table-responsive">
+        <div class="table-responsive shadow p-3 mb-5 bg-white rounded">
             @if(count($data) > 0)
 
-            <table class="table table-bordered"  width="100%" cellspacing="0">
-                <thead>
+            <table class="table table-bordered"  width="100%" cellspacing="0" >
+                <thead class="thead-light">
                     <tr>
                         <th>no</th>
                         <th>Rentangan</th>

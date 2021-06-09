@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Data extends Model
+class ZTable extends Model
 {
+    protected $table = 'tb_zed'; 
     use HasFactory;
-    protected $fillable = [ 'nilai_1'];
 }
