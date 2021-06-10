@@ -45,14 +45,16 @@
 
 
                             <tbody>
+                                <?php $i = 1; ?>
                                 @foreach($data as $item)
 
-                                <td>{{$item -> id}}</td>
+                                <td>{{$i}}</td>
                                 <td>{{$item -> nilai_1}}</td>
                                 <td>
                                     <a href="/Data/{{$item -> id}}/edit" class="btn btn-primary" name='edit'>edit</a>
                                 </td>
                                 </tr>
+                                <?php $i++; ?>
                                 @endforeach
                             </tbody>
                         </table>

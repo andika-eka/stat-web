@@ -13,6 +13,6 @@ class dataExport implements FromCollection
     */
     public function collection()
     {
-        return Data::all('id','nilai_1');
+        return Data::all('nilai_1');
     }
 }

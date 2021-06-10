@@ -184,4 +184,57 @@ class PagesController extends Controller
                                     'kai'=>$kai,
                                     'chi'=>$chi]);
     }
+
+    public function Lilliefors(){
+        $title = "Lilliefors";
+
+        $dataNum = Data::count('nilai_1');
+        $avg = number_format(Data::average('nilai_1'), 2);
+
+        $Data = Data::select('nilai_1')->get();
+        $index = 0;
+        foreach ($Data as $x){
+            $dataArr[$index] = $x->nilai_1;
+            $index++;            
+        }
+        
+        $Sdev = number_format($this->std_dev($dataArr), 2);
+        
+        for($i = 0; $i < $dataNum; $i++){
+            $frek[$i] = Data::select( 'nilai_1', DB::raw('count(*) as frekuensi'))
+            ->groupBy('nilai_1')
+            ->get();
+            $countData = count($frek[$i]);
+        }
+
+        $totalfrek = 0;
+        $totalLLF = 0;
+        for($i = 0; $i < $countData; $i++){
+            
+            $totalfrek += $frek[0][$i]->frekuensi;
+            $frekKum[$i] = $totalfrek;
+
+            $Zi[$i] = number_format(($frek[0][$i]->nilai_1 - $avg)/$Sdev, 2);
+            $Zrow = ZTable::where('z', '=', $this->decimal($Zi[$i]))->get();
+            $tmp = $this->label($Zi[$i]);
+            $F_zi[$i] = $Zrow[0]->$tmp;
+
+            $S_zi[$i] = number_format($frekKum[$i]/$dataNum, 5);
+
+            $LLF[$i] = abs($F_zi[$i]-$S_zi[$i]);
+            $totalLLF = $LLF[$i];
+        }
+
+
+        return view('pages.Lilliefors',[    'title' => $title,
+                                            'frek' => $frek,
+                                            'countData' => $countData,
+                                            'frekKum' => $frekKum,
+                                            'Zi' => $Zi,
+                                            'F_zi' => $F_zi,
+                                            'S_zi' => $S_zi,
+                                            'LLF' => $LLF,
+                                            'totalLLF' => $totalLLF,
+                                            'dataNum' => $dataNum]);
+    }
 }
