@@ -34,6 +34,7 @@ Route::get('/import', [DataController::class, 'import']);
 Route::post('/import', [DataController::class, 'importFile']);
 
 Route::get('/chi', [PagesController::class, 'chi']);
+Route::get('/Lilliefors', [PagesController::class, 'Lilliefors']);
 /*
 +--------+-----------+------------------+--------------+---------------------------------------------+------------+
 | Domain | Method    | URI              | Name         | Action                                      | Middleware |
