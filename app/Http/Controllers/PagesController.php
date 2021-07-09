@@ -47,6 +47,16 @@ class PagesController extends Controller
         return view('pages.about')->with('title', $title);
     }
 
+    public function import(){
+        $title = 'import';
+        return view('pages.import')->with('title', $title);
+    }
+
+    public function export(){
+        $title = 'export';
+        return view('pages.export')->with('title', $title);
+    }
+
     public function DataBergolong(){
         $title = 'Data Bergolong';
 

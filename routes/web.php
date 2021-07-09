@@ -29,9 +29,12 @@ Route::get('/bergolong', [PagesController::class, 'DataBergolong']);
 
 Route::resource('Data', DataController::class );
 
-Route::get('/export', [DataController::class, 'export']);
-Route::get('/import', [DataController::class, 'import']);
-Route::post('/import', [DataController::class, 'importFile']);
+Route::get('/export', [PagesController::class, 'export']);
+Route::get('/import', [PagesController::class, 'import']);
+
+Route::get('/exportdata', [DataController::class, 'export']);
+Route::get('/importdata', [DataController::class, 'import']);
+Route::post('/importdata', [DataController::class, 'importFile']);
 
 Route::get('/chi', [PagesController::class, 'chi']);
 Route::get('/Lilliefors', [PagesController::class, 'Lilliefors']);
