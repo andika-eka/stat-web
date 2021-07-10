@@ -88,12 +88,10 @@
                     <div class="form-group">
                         <input type="file" name="file" required>
                     </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
-                        <button type="submit" class="btn btn-success">  <i class="fas fa-file-import"></i>Import</button>
+                        <button type="submit" class="btn btn-success"><i class="fas fa-file-import"></i>Import</button>
                         @csrf
-
                     </div>
                 </div>
             </form>
@@ -111,17 +109,15 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="/importMoment" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="file" name="file" required>
                     </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
                         <button type="submit" class="btn btn-success">  <i class="fas fa-file-import"></i>Import</button>
                         @csrf
-
                     </div>
                 </div>
             </form>
@@ -139,7 +135,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="/importUjit" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="file" name="file" required>
@@ -167,7 +163,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="/importAnava" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="file" name="file" required>

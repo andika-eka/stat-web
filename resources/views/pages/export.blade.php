@@ -30,7 +30,7 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">Data Product Moment</h5>
-                    <a href="#" class="btn btn-success"> <i class="fas fa-file-export"></i> export</a>
+                    <a href="/exportMoment" class="btn btn-success"> <i class="fas fa-file-export"></i> export</a>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">Data uji T</h5>
-                    <a href="#" class="btn btn-success"><i class="fas fa-file-export"></i> export</a>
+                    <a href="/exportUjiT" class="btn btn-success"><i class="fas fa-file-export"></i> export</a>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">Data Anava</h5>
-                    <a href="#" class="btn btn-success"><i class="fas fa-file-export"></i> export</a>
+                    <a href="/exportAnava" class="btn btn-success"><i class="fas fa-file-export"></i> export</a>
                 </div>
             </div>
         </div>

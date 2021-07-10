@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Anava extends Model
 {
-    protected $fillable = ['x1', 'x2', 'x2'];
+    protected $fillable = ['x1', 'x2', 'x3'];
     public $timestamps = false;    
     use HasFactory;
 }

@@ -65,7 +65,7 @@
                                 <a class="nav-link" href="/Data">Data Skor</a>
                                 <a class="nav-link" href="/indexMoment">Data Product Moment</a>
                                 <a class="nav-link" href="/indedxUjit">Data Uji T</a>
-                                <a class="nav-link" href="/indexAnava">Data Anava</a>
+                                <a class="nav-link" href="/indexAnava">Data uji Anava</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
@@ -93,8 +93,8 @@
                         <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne"
                             data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="/export">export</a>
-                                <a class="nav-link" href="/import">import</a>
+                                <a class="nav-link" href="/export"><i class="fas fa-file-export"></i> Export</a>
+                                <a class="nav-link" href="/import"><i class="fas fa-file-import"></i> Import</a>
                             </nav>
                         </div>
                         <a class="nav-link" href="/about">
