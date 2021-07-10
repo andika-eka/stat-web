@@ -18,7 +18,7 @@ class DataController extends Controller
     public function index()
     { 
         //view/read
-        $title = 'data list';
+        $title = 'data Skor';
 
         $data = Data::all();
         return view('data.index')

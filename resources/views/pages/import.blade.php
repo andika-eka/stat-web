@@ -47,8 +47,22 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">Data Product Biserial</h5>
+                    <h5 class="card-title">Data uji T</h5>
                     <a href="#" class="btn btn-success" data-toggle="modal" data-target="#exampleModal3"> <i class="fas fa-file-import"></i> import</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="img/img4.png" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Data Anava</h5>
+                    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#exampleModal4"> <i class="fas fa-file-import"></i> import</a>
                 </div>
             </div>
         </div>
@@ -120,7 +134,35 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Data Product Biserial</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Data uji T</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="#" method="POST" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="file" name="file" required>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+                        <button type="submit" class="btn btn-success">  <i class="fas fa-file-import"></i>Import</button>
+                        @csrf
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Data Anava</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

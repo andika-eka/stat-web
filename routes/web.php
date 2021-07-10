@@ -4,6 +4,7 @@ use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\statController;
 
 
 /*
@@ -38,6 +39,11 @@ Route::post('/importdata', [DataController::class, 'importFile']);
 
 Route::get('/chi', [PagesController::class, 'chi']);
 Route::get('/Lilliefors', [PagesController::class, 'Lilliefors']);
+
+
+Route::get('/indexMoment', [statController::class, 'indexMoment']);
+Route::get('/indedxUjit', [statController::class, 'indedxUjit']);
+Route::get('/indexAnava', [statController::class, 'indexAnava']);
 /*
 +--------+-----------+------------------+--------------+---------------------------------------------+------------+
 | Domain | Method    | URI              | Name         | Action                                      | Middleware |
