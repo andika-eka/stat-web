@@ -18,7 +18,7 @@ class DataController extends Controller
     public function index()
     { 
         //view/read
-        $title = 'data list';
+        $title = 'data Skor';
 
         $data = Data::all();
         return view('data.index')
@@ -138,6 +138,12 @@ class DataController extends Controller
         // ]);
         Excel::import(new DataImport, $request->file('file'));
         
-        return redirect('/')->with('success', 'All good!');
+        return redirect('/Data')->with('success', 'All good!');
+    }
+
+    public function truncate()
+    {
+        Data::truncate();       
+        return redirect('/Data')->with('success', 'all data in table deleted');
     }
 }

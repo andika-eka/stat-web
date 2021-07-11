@@ -22,7 +22,6 @@
             </div>
         </div>
     </div>
-
     <div class="card ">
         <div class="row g-0">
             <div class="col-md-4">
@@ -31,13 +30,11 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">Data Product Moment</h5>
-                    <a href="#" class="btn btn-success"> <i class="fas fa-file-export"></i> export</a>
+                    <a href="/exportMoment" class="btn btn-success"> <i class="fas fa-file-export"></i> export</a>
                 </div>
             </div>
         </div>
     </div>
-
-
     <div class="card ">
         <div class="row g-0">
             <div class="col-md-4">
@@ -45,8 +42,21 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">Data Product Biserial</h5>
-                    <a href="#" class="btn btn-success"><i class="fas fa-file-export"></i> export</a>
+                    <h5 class="card-title">Data uji T</h5>
+                    <a href="/exportUjiT" class="btn btn-success"><i class="fas fa-file-export"></i> export</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card ">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="img/img4.png" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Data Anava</h5>
+                    <a href="/exportAnava" class="btn btn-success"><i class="fas fa-file-export"></i> export</a>
                 </div>
             </div>
         </div>

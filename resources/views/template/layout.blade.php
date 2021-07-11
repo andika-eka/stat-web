@@ -53,23 +53,40 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts3"
+                            aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="far fa-file-excel"></i></div>
+                            Data list
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne"
+                            data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/Data">Data Skor</a>
+                                <a class="nav-link" href="/indexMoment">Data Product Moment</a>
+                                <a class="nav-link" href="/indedxUjit">Data Uji T</a>
+                                <a class="nav-link" href="/indexAnava">Data uji Anava</a>
+                            </nav>
+                        </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
                             aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            table
+                            Table staistik
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="/Data">data</a>
-                                <a class="nav-link" href="/info">informasi</a>
+                                <!-- <a class="nav-link" href="/Data">data</a> -->
+                                <a class="nav-link" href="/info">frekuwensi</a>
                                 <a class="nav-link" href="/bergolong">data bergolong</a>
                                 <a class="nav-link" href="/chi">Chi-Kuadrat</a>
                                 <a class="nav-link" href="/Lilliefors">Lilliefors</a>
+                                <a class="nav-link" href="/Moment">Koefisien korelasi product moment</a>
+                                <a class="nav-link" href="/Ujit">Uji T Berkolerasi</a>
+                                <a class="nav-link" href="/Anava">Uji Anava</a>
                             </nav>
                         </div>
-
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2"
                             aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="far fa-file-excel"></i></div>
@@ -79,8 +96,8 @@
                         <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne"
                             data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="/export">export</a>
-                                <a class="nav-link" href="/import">import</a>
+                                <a class="nav-link" href="/export"><i class="fas fa-file-export"></i> Export</a>
+                                <a class="nav-link" href="/import"><i class="fas fa-file-import"></i> Import</a>
                             </nav>
                         </div>
                         <a class="nav-link" href="/about">

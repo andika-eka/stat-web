@@ -4,6 +4,7 @@ use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\statController;
 
 
 /*
@@ -33,11 +34,35 @@ Route::get('/export', [PagesController::class, 'export']);
 Route::get('/import', [PagesController::class, 'import']);
 
 Route::get('/exportdata', [DataController::class, 'export']);
+Route::get('/exportMoment', [statController::class, 'exportMoment']);
+Route::get('/exportUjiT', [statController::class, 'exportUjiT']);
+Route::get('/exportAnava', [statController::class, 'exportAnava']);
+
 Route::get('/importdata', [DataController::class, 'import']);
 Route::post('/importdata', [DataController::class, 'importFile']);
+Route::post('/importMoment', [statController::class, 'importMoment']);
+Route::post('/importUjit', [statController::class, 'importUjit']);
+Route::post('/importAnava', [statController::class, 'importAnava']);
 
 Route::get('/chi', [PagesController::class, 'chi']);
 Route::get('/Lilliefors', [PagesController::class, 'Lilliefors']);
+
+
+Route::get('/indexMoment', [statController::class, 'indexMoment']);
+Route::get('/indedxUjit', [statController::class, 'indedxUjit']);
+Route::get('/indexAnava', [statController::class, 'indexAnava']);
+
+Route::get('/Moment', [statController::class, 'Moment']);
+Route::get('/Ujit', [statController::class, 'Ujit']);
+Route::get('/Anava', [statController::class, 'Anava']);
+
+Route::delete('/data', [DataController::class, 'truncate']);
+Route::delete('/moment', [statController::class, 'truncateMoment']);
+Route::delete('/ujit', [statController::class, 'truncateUjit']);
+Route::delete('/anava', [statController::class, 'truncateAnava']);
+
+
+
 /*
 +--------+-----------+------------------+--------------+---------------------------------------------+------------+
 | Domain | Method    | URI              | Name         | Action                                      | Middleware |
