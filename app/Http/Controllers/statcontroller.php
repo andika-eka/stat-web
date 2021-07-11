@@ -6,6 +6,7 @@ use App\Models\Moment;
 use App\Models\Anava;
 use App\Models\UjiT;
 use App\Models\Ttable;
+use App\Models\Ftable;
 use Illuminate\Http\Request;
 
 use Maatwebsite\Excel\Facades\Excel;
@@ -216,9 +217,200 @@ class statcontroller extends Controller
                                     'title' => $title]);
     }
 
+    private function label($index){
+        $col_label = ['nol', 'satu','dua','tiga','empat','lima'];
+        $Label =  $col_label[$index];
+        return $Label;
+    }
+
+
     public function Anava(){
-        $title = "Koefisien korelasi product moment";
-        return view('/pages.anava', [
+        $title = "Uji Anava";
+
+        $Anava = Anava::all();
+        $count = Anava::count();
+
+        $sumX1 = Anava::sum('x1');
+        $sumX2 = Anava::sum('x2');
+        $sumX3 = Anava::sum('x3');
+
+        $avgX1 = Anava::avg('x1');
+        $avgX2 = Anava::avg('x2');
+        $avgX3 = Anava::avg('x3');
+
+        $nx1 = Anava::count('x1');
+        $nx2 = Anava::count('x2');
+        $nx3 = Anava::count('x3');
+
+        $total = $nx1+ $nx2+ $nx3;
+
+    
+        $k = 4;
+
+
+        $sigmaX1Sqr = 0;
+        $sigmaX2Sqr = 0;
+        $sigmaX3Sqr = 0;
+        $sigmaXtotal = 0;
+        $sigmaXtotalSqr = 0;
+
+        for ($i=0; $i < $count; $i++){
+            $X1Sqr[$i] = $Anava[$i]->x1 * $Anava[$i]->x1;
+            $X2Sqr[$i] = $Anava[$i]->x2 * $Anava[$i]->x2;
+            $X3Sqr[$i] = $Anava[$i]->x3 * $Anava[$i]->x3;
+        
+
+            $sigmaX1Sqr += $X1Sqr[$i];
+            $sigmaX2Sqr += $X2Sqr[$i];
+            $sigmaX3Sqr += $X3Sqr[$i];
+            
+            $Xtotal[$i] = $Anava[$i]->x1 + $Anava[$i]->x2 + $Anava[$i]->x3;
+            $XtotalSqr[$i] =  $Xtotal[$i] * $Xtotal[$i];
+
+            $sigmaXtotal += $Xtotal[$i];
+            $sigmaXtotalSqr += $XtotalSqr[$i];
+        }
+
+        if($nx1 !== 0 ){
+            $a1 =  ($sumX1/$nx1);
+        }else {
+            $a1 = 0;
+        }
+
+        if($nx2 !== 0 ){
+            $a2 =  ($sumX2/$nx2);
+        }else {
+            $a2 = 0;
+        }
+
+        
+        if($nx3 !== 0 ){
+            $a3 =  ($sumX3/$nx3);
+        }else {
+            $a3 = 0;
+        }
+
+        if($total !== 0 ){
+            $a5 =  ($sigmaXtotal/$total);
+        }else {
+            $a5 = 0;
+        }
+
+        $JKA =  $a1 + $a2 + $a3 + - $a5;
+
+        $DKA = $k - 1;
+
+        if($DKA !== 0 ){
+            $RJKA = $JKA/$DKA;
+        } else {
+            $RJKA = 0;
+        }
+
+
+        $sigmaYSqr = $sigmaX1Sqr + $sigmaX2Sqr + $sigmaX3Sqr ;
+
+        if ($total !== 0) { 
+            $JKT = $sigmaYSqr - (($sigmaXtotal * $sigmaXtotal)/$total);
+        } else {
+            $JKT =0;
+        }
+
+        $JKD = $JKT - $JKA;
+
+
+        $DKD = $total - $k;
+
+
+        if($DKD !== 0) { 
+            $RJKD = $JKD/$DKD;  
+        } else {
+            $RJKD = 0;
+        }
+        
+
+        if($RJKD !== 0 ){ 
+            $F = $RJKA/ $RJKD;
+        }else{
+            $F = 0;
+        }
+
+        $DKT = $DKD + $DKA;
+
+        // function label($index){
+        //     $col_label = ['nol', 'satu','dua','tiga','empat','lima'];
+        //     $Label =  $col_label[$nilai];
+        //     return $Label;
+        // }
+
+        // function label($nilai){            
+
+        //     switch($nilai){
+        //         case '0': 
+        //             $sLabel = 'nol';
+        //             break;
+        //         case '1': 
+        //             $sLabel = 'satu';
+        //             break;
+        //         case '2': 
+        //             $sLabel = 'dua';
+        //             break;
+        //         case '3': 
+        //             $sLabel = 'tiga';
+        //             break;
+        //         case '4': 
+        //             $sLabel = 'empat';
+        //             break;
+        //         case '5': 
+        //             $sLabel = 'lima';
+        //             break;                
+        //         default: $sLabel = 'Tidak ada field';
+        //     }
+            
+        //     return $sLabel;
+        // }
+
+        //1. cek label
+        $labelDKA = $this->label($DKA);
+        
+        //2. cek di tabel f
+        $kolom = Ftable::where('df1', '=', $DKD)->get();                 
+        $fTabel = $kolom[0]->$labelDKA;               
+
+        //cek keterangan
+        if ($F > $fTabel){
+            $status =  "Signifikan";
+        } else {
+            $status =   "Tidak Signifikan";
+        }
+        return view('/pages.anava', ['Anava' => $Anava,
+                                    'count' => $count,
+                                    'X1Sqr' => $X1Sqr,
+                                    'X2Sqr' => $X2Sqr,
+                                    'X3Sqr' => $X3Sqr,
+                                    'Xtotal' => $Xtotal,
+                                    'XtotalSqr' => $XtotalSqr,
+                                    'sumX1' => $sumX1,
+                                    'sumX2' => $sumX2,
+                                    'sumX3' => $sumX3,
+                                    'sigmaX1Sqr' => $sigmaX1Sqr,
+                                    'sigmaX2Sqr' => $sigmaX2Sqr,
+                                    'sigmaX3Sqr' => $sigmaX3Sqr,
+                                    'sigmaXtotal' => $sigmaXtotal,
+                                    'sigmaXtotalSqr' => $sigmaXtotalSqr,
+                                    'avgX1' => $avgX1,
+                                    'avgX2' => $avgX2,
+                                    'avgX3' => $avgX3,
+                                    'JKA' => $JKA,
+                                    'DKA' => $DKA,
+                                    'RJKA' => $RJKA,
+                                    'F' => $F,
+                                    'fTabel' => $fTabel,
+                                    'status' => $status,
+                                    'JKD' => $JKD,
+                                    'DKD' => $DKD,
+                                    'RJKD' => $RJKD,
+                                    'JKT' => $JKT,
+                                    'DKT' => $DKT,
                                     'title' => $title]);
     }
 
