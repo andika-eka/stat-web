@@ -82,6 +82,9 @@
                                 <a class="nav-link" href="/bergolong">data bergolong</a>
                                 <a class="nav-link" href="/chi">Chi-Kuadrat</a>
                                 <a class="nav-link" href="/Lilliefors">Lilliefors</a>
+                                <a class="nav-link" href="/Moment">Koefisien korelasi product moment</a>
+                                <a class="nav-link" href="/Ujit">Uji T Berkolerasi</a>
+                                <a class="nav-link" href="/Anava">Uji Anava</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2"

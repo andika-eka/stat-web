@@ -52,10 +52,16 @@ Route::get('/indexMoment', [statController::class, 'indexMoment']);
 Route::get('/indedxUjit', [statController::class, 'indedxUjit']);
 Route::get('/indexAnava', [statController::class, 'indexAnava']);
 
+Route::get('/Moment', [statController::class, 'Moment']);
+Route::get('/Ujit', [statController::class, 'Ujit']);
+Route::get('/Anava', [statController::class, 'Anava']);
+
 Route::delete('/data', [DataController::class, 'truncate']);
 Route::delete('/moment', [statController::class, 'truncateMoment']);
 Route::delete('/ujit', [statController::class, 'truncateUjit']);
 Route::delete('/anava', [statController::class, 'truncateAnava']);
+
+
 
 /*
 +--------+-----------+------------------+--------------+---------------------------------------------+------------+
